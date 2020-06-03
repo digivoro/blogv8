@@ -5,6 +5,7 @@ import SobreMi from "../views/SobreMi.vue";
 import Contacto from "../views/Contacto.vue";
 import Post from "../views/Post.vue";
 import NotFound from "../views/NotFound.vue";
+import Articulo from "../components/Articulo.vue";
 
 Vue.use(VueRouter);
 
@@ -37,7 +38,7 @@ const routes = [
       {
         path: ":postId",
         name: "Post",
-        component: Post
+        component: Articulo
       }
     ]
   }
