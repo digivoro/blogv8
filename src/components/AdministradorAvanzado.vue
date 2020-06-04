@@ -1,10 +1,12 @@
 <template>
-  <router-view />
+  <div>
+    <h1>Administrador Avanzado</h1>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Post"
+  name: "AdministradorAvanzado"
 };
 </script>
 
