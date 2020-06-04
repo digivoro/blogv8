@@ -29,12 +29,14 @@ const routes = [
   {
     path: "/sobremi",
     name: "SobreMi",
-    component: SobreMi
+    component: SobreMi,
+    alias: ["/acerca"]
   },
   {
     path: "/contacto",
     name: "Contacto",
-    component: Contacto
+    component: Contacto,
+    alias: ["/contactame"]
   },
   {
     path: "/post",

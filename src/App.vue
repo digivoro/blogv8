@@ -33,9 +33,8 @@
       </div>
     </nav>
     <!-- ROUTER VIEW QUE CARGARÁ LAS VISTAS (INICIO, SOBRE MÍ, CONTACTO, ETC.) -->
-    <transition name="transicion-vista">
-      <router-view></router-view>
-    </transition>
+
+    <router-view></router-view>
   </div>
 </template>
 
