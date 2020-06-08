@@ -34,7 +34,9 @@
     </nav>
     <!-- ROUTER VIEW QUE CARGARÁ LAS VISTAS (INICIO, SOBRE MÍ, CONTACTO, ETC.) -->
 
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -54,4 +56,17 @@ export default {};
 #menu-v8 a {
   text-shadow: 1px 1px #000;
 }
+.fade-enter-active {
+  transition: opacity 1s;
+}
+.fade-enter {
+  opacity: 0;
+}
+
+/* .fade-leave-active {
+  transition: opacity 1000ms;
+}
+.fade-leave {
+  opacity: 0;
+} */
 </style>

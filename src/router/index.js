@@ -3,67 +3,81 @@ import VueRouter from "vue-router";
 
 // Vistas
 import Portada from "../views/Portada.vue";
-import SobreMi from "../views/SobreMi.vue";
-import Contacto from "../views/Contacto.vue";
-import Post from "../views/Post.vue";
-import NotFound from "../views/NotFound.vue";
-import Administrador from "../views/Administrador.vue";
+// import SobreMi from "../views/SobreMi.vue";
+// import Contacto from "../views/Contacto.vue";
+// import Post from "../views/Post.vue";
+// import NotFound from "../views/NotFound.vue";
+// import Administrador from "../views/Administrador.vue";
+
 // Componentes
-import Articulo from "../components/Articulo.vue";
-import AdministradorAvanzado from "../components/AdministradorAvanzado.vue";
-import AdministradorSimple from "../components/AdministradorSimple.vue";
+// import Articulo from "../components/Articulo.vue";
+// import AdministradorAvanzado from "../components/AdministradorAvanzado.vue";
+// import AdministradorSimple from "../components/AdministradorSimple.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: "*",
-    name: "NotFound",
-    component: NotFound
-  },
   {
     path: "/",
     name: "Portada",
     component: Portada
   },
   {
+    path: "*",
+    name: "NotFound",
+    component: () =>
+      import(/*webpackChunkName: "NotFound"*/ "../views/NotFound.vue")
+  },
+  {
     path: "/sobremi",
     name: "SobreMi",
-    component: SobreMi,
+    component: () =>
+      import(/*webpackChunkName: "SobreMi"*/ "../views/SobreMi.vue"),
     alias: ["/acerca"]
   },
   {
     path: "/contacto",
     name: "Contacto",
-    component: Contacto,
+    component: () =>
+      import(/*webpackChunkName: "Contacto"*/ "../views/Contacto.vue"),
     alias: ["/contactame"]
   },
   {
     path: "/post",
     name: "Post",
-    component: Post,
+    component: () => import(/*webpackChunkName: "Post"*/ "../views/Post.vue"),
     children: [
       {
         path: ":postId",
         name: "Post",
-        component: Articulo
+        component: () =>
+          import(/*webpackChunkName: "Articulo"*/ "../components/Articulo.vue")
       }
     ]
   },
   {
     path: "/administrador",
     name: "Administrador",
-    component: Administrador,
+    component: () =>
+      import(
+        /*webpackChunkName: "Administrador"*/ "../views/Administrador.vue"
+      ),
     children: [
       {
         path: "simple",
         name: "AdministradorSimple",
-        component: AdministradorSimple
+        component: () =>
+          import(
+            /*webpackChunkName: "AdministradorSimple"*/ "../components/AdministradorSimple.vue"
+          )
       },
       {
         path: "avanzado",
         name: "AdministradorAvanzado",
-        component: AdministradorAvanzado
+        component: () =>
+          import(
+            /*webpackChunkName: "AdministradorAvanzado"*/ "../components/AdministradorAvanzado.vue"
+          )
       }
     ]
   },
